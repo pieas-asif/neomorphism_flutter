@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  const Home({ Key? key }) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -29,10 +29,24 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: Center(child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
+      body: const Center(
+        child: Button(),
+      ),
+    );
+  }
+}
+
+class Button extends StatelessWidget {
+  const Button({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
           color: Colors.grey[300],
           shape: BoxShape.circle,
           boxShadow: [
@@ -48,24 +62,26 @@ class _HomeState extends State<Home> {
               blurRadius: 15.0,
               spreadRadius: 1.0,
             ),
-            
           ],
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.grey.shade200,
-              Colors.grey.shade300,
-              Colors.grey.shade400,
-              Colors.grey.shade500,
-            ], 
-            stops: const [
-              0.1, 0.3, 0.8, 1,
-            ]
-          )
-        ),
-        child: const Icon(Icons.android, size: 80,),
-      ),),
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.grey.shade200,
+                Colors.grey.shade300,
+                Colors.grey.shade400,
+                Colors.grey.shade500,
+              ],
+              stops: const [
+                0.1,
+                0.3,
+                0.8,
+                1,
+              ])),
+      child: const Icon(
+        Icons.android,
+        size: 80,
+      ),
     );
   }
 }
