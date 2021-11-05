@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
-  const Home({ Key? key }) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -29,43 +29,87 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      body: Center(child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
-          color: Colors.grey[300],
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade600,
-              offset: const Offset(4.0, 4.0),
-              blurRadius: 15.0,
-              spreadRadius: 1.0,
+      body: Center(
+        child: Container(
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade600,
+                offset: const Offset(4.0, 4.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0,
+              ),
+              const BoxShadow(
+                color: Colors.white,
+                offset: Offset(-4.0, -4.0),
+                blurRadius: 15.0,
+                spreadRadius: 1.0,
+              ),
+            ],
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Colors.grey.shade200,
+                Colors.grey.shade300,
+                Colors.grey.shade400,
+                Colors.grey.shade500,
+              ],
+              stops: const [
+                0.1,
+                0.3,
+                0.8,
+                1,
+              ],
             ),
-            const BoxShadow(
-              color: Colors.white,
-              offset: Offset(-4.0, -4.0),
-              blurRadius: 15.0,
-              spreadRadius: 1.0,
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              shape: BoxShape.circle,
+              boxShadow: [
+                const BoxShadow(
+                  color: Colors.white,
+                  offset: const Offset(4.0, 4.0),
+                  blurRadius: 15.0,
+                  spreadRadius: 1.0,
+                ),
+                BoxShadow(
+                  color: Colors.grey.shade600,
+                  offset: Offset(-4.0, -4.0),
+                  blurRadius: 15.0,
+                  spreadRadius: 1.0,
+                ),
+              ],
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Colors.grey.shade700,
+                  Colors.grey.shade600,
+                  Colors.grey.shade500,
+                  Colors.grey.shade200,
+                ],
+                stops: const [
+                  0,
+                  0.1,
+                  0.3,
+                  1,
+                ],
+              ),
             ),
-            
-          ],
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.grey.shade200,
-              Colors.grey.shade300,
-              Colors.grey.shade400,
-              Colors.grey.shade500,
-            ], 
-            stops: const [
-              0.1, 0.3, 0.8, 1,
-            ]
-          )
+            child: const Icon(
+              Icons.android,
+              size: 80,
+            ),
+          ),
         ),
-        child: const Icon(Icons.android, size: 80,),
-      ),),
+      ),
     );
   }
 }
